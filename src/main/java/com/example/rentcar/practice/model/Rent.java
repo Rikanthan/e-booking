@@ -1,11 +1,12 @@
 package com.example.rentcar.practice.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "rent")
+@Document("rent")
 public class Rent {
     public int getRentId() {
         return rentId;
