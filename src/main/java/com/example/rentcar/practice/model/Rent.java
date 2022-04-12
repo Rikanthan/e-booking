@@ -2,9 +2,7 @@ package com.example.rentcar.practice.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Document("rent")
 public class Rent {
@@ -16,13 +14,6 @@ public class Rent {
         this.rentId = rentId;
     }
 
-    public int getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(int empId) {
-        this.empId = empId;
-    }
 
     public String getVehicle() {
         return vehicle;
@@ -42,7 +33,17 @@ public class Rent {
 
     @Id
     private int rentId;
-    private int empId;
+
+    @ManyToOne
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    private Employee employee;
     private String vehicle;
     private String duration;
 }
